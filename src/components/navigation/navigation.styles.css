@@ -1,0 +1,6 @@
+.navigation-bar {
+  position: fixed;
+  height: 150px;
+  width: 100%;
+  display: flex;
+}
