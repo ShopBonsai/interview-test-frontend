@@ -17,3 +17,12 @@ code {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 }
+
+button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
