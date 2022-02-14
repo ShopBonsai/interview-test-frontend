@@ -1,14 +1,16 @@
-import express, { Response, Request, NextFunction } from 'express';
+import express from 'express';
 
+import * as products from './routes/products';
+
+const PORT = 8000;
 const app = express();
 
 // Pretty json output
 app.set('json spaces', 2);
 
-app.get('/products', (req: Request, res: Response, next: NextFunction) => {
-  res.json({ ok: true });
-});
+// API
+app.get('/products', products.getProducts);
 
-app.listen(8000, () => {
-  console.log('server running');
+app.listen(PORT, () => {
+  console.log(`server running on port: ${PORT}`);
 });

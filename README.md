@@ -65,8 +65,8 @@ Ensure [yarn](https://yarnpkg.com/) is installed.
 Start backend server with:
 
 ```sh
-cd ./api
-yarn start
+cd ./server
+yarn && yarn start
 ```
 
 Server should be running at `http://localhost:8000`
