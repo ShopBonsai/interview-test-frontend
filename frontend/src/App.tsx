@@ -8,6 +8,7 @@ import Navigation from "./components/navigation/navigation";
 
 import "./App.css";
 
+// REPLACE WITH API FETCHED ITEMS
 const TEMPORARY_ITEMS = [
   {
     id: 1,
@@ -28,9 +29,7 @@ const TEMPORARY_ITEMS = [
 ];
 
 const App = () => {
-  const { state } = useContext(CartContext);
-
-  const { isOpen } = state;
+  const { isOpen } = useContext(CartContext);
 
   return (
     <div className="App">
