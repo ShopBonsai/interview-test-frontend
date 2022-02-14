@@ -8,6 +8,7 @@ The current test is setup with a few basic react components: Cart, CartItem and 
 
 For this assignment, please implement an add to cart feature from the list of products. We have a simple node server for you to fetch products from. It's up to you to figure out everything required to make it work including frontend data validation and preventing adding to cart for out of stock products. The product data you'll receive is the following below:
 
+```
 type Product = {
 id: string;
 name: string;
@@ -30,6 +31,7 @@ type SelectionOption = {
 type: string;
 value: string;
 };
+```
 
 In this test, please use redux for state management and your preferred side effect library (redux-thunk, redux-saga, redux-observable) if needed! We strongly recommend you follow functional programming practices when it comes to how you write your code, as a result we prefer you don't use redux-toolkit since the code written resembles mutable patterns.
 
