@@ -10,26 +10,26 @@ For this assignment, please implement an add to cart feature from the list of pr
 
 ```
 type Product = {
-id: string;
-name: string;
-isDiscontinued: boolean;
-variants: Variant[];
-description: string;
-defaultImage: string;
+  id: string;
+  name: string;
+  isDiscontinued: boolean;
+  variants: Variant[];
+  description: string;
+  defaultImage: string;
 };
 
 type Variant = {
-id: string;
-quantity: number;
-images: string[];
-isDiscontinued: boolean;
-priceCents: number;
-selectionOptions: SelectionOption[];
+  id: string;
+  quantity: number;
+  images: string[];
+  isDiscontinued: boolean;
+  priceCents: number;
+  selectionOptions: SelectionOption[];
 };
 
 type SelectionOption = {
-type: string;
-value: string;
+  type: string;
+  value: string;
 };
 ```
 
