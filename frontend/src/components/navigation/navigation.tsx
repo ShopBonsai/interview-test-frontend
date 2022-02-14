@@ -1,17 +1,13 @@
 import { useContext } from "react";
 
-import { CartContext, CartActionTypes } from "../../cart-context";
+import { CartContext } from "../../cart-context";
 
 import "./navigation.styles.css";
 
 const Navigation = () => {
-  const {
-    dispatch,
-    state: { isOpen },
-  } = useContext(CartContext);
+  const { isOpen, setIsOpen } = useContext(CartContext);
 
-  const toggleCart = () =>
-    dispatch({ type: CartActionTypes.SET_IS_OPEN, payload: !isOpen });
+  const toggleCart = () => setIsOpen(!isOpen);
 
   return (
     <nav className="navigation-bar">

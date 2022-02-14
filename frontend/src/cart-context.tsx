@@ -1,52 +1,18 @@
-import { createContext, useReducer, Dispatch, FC } from "react";
+import { createContext, useState, FC } from "react";
 
-export interface ICartState {
-  readonly isOpen: boolean;
+interface ICartContext {
+  isOpen: boolean;
+  setIsOpen: (isOpen: boolean) => void;
 }
 
-export enum CartActionTypes {
-  SET_IS_OPEN = "cart/SET_IS_OPEN",
-}
-
-export const INITIAL_CART_STATE: ICartState = {
+export const CartContext = createContext<ICartContext>({
   isOpen: false,
-};
-
-export type SET_IS_OPEN = {
-  type: CartActionTypes.SET_IS_OPEN;
-  payload: boolean;
-};
-
-export type CartAction = SET_IS_OPEN;
-
-export const CartContext = createContext<{
-  state: ICartState;
-  dispatch: Dispatch<CartAction>;
-}>({
-  state: INITIAL_CART_STATE,
-  dispatch: () => null,
+  setIsOpen: () => null,
 });
 
-const cartReducer = (
-  state: ICartState,
-  action: CartAction = {} as CartAction
-): ICartState => {
-  console.log(action);
-  const { type, payload } = action;
-  switch (type) {
-    case CartActionTypes.SET_IS_OPEN: {
-      return { isOpen: payload };
-    }
-    default:
-      return state;
-  }
-};
-
 export const CartProvider: FC = ({ children }) => {
-  const [state, dispatch] = useReducer(cartReducer, INITIAL_CART_STATE);
-  const value = { state, dispatch };
-
-  console.log(state);
+  const [isOpen, setIsOpen] = useState(false);
+  const value = { isOpen, setIsOpen };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 };

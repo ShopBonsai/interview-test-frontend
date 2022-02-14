@@ -1,10 +1,11 @@
 import { useContext } from "react";
 
 import CartItem from "../cart-item/cart-item";
-import { CartContext, CartActionTypes } from "../../cart-context";
+import { CartContext } from "../../cart-context";
 
 import "./cart.styles.css";
 
+// REPLACE WITH YOUR OWN CART ITEMS
 const TEMPORARY_ITEMS = [
   {
     id: 1,
@@ -15,10 +16,9 @@ const TEMPORARY_ITEMS = [
 ];
 
 const Cart = () => {
-  const { dispatch } = useContext(CartContext);
+  const { setIsOpen } = useContext(CartContext);
 
-  const closeCart = () =>
-    dispatch({ type: CartActionTypes.SET_IS_OPEN, payload: false });
+  const closeCart = () => setIsOpen(false);
 
   return (
     <div className="cart-modal">
