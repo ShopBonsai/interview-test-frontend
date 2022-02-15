@@ -6,7 +6,7 @@ export type SelectionOption = {
 export type Variant = {
   id: string;
   quantity: number;
-  images: string[];
+  image: string;
   isDiscontinued: boolean;
   priceCents: number;
   selectableOptions: SelectionOption[];

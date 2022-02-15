@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { CartContext } from './cart-context';
 
@@ -29,6 +29,12 @@ const TEMPORARY_ITEMS = [
 
 const App = () => {
   const { isOpen } = useContext(CartContext);
+
+  useEffect(() => {
+    fetch('http://localhost:8000/products')
+      .then((res) => res.json())
+      .then((res) => console.log(res));
+  }, []);
 
   return (
     <div className="App">

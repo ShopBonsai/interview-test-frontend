@@ -25,7 +25,7 @@ type RandomVariant = {
 const randomVariant = ({ isDiscontinued, selectableOptions }: RandomVariant): Variant => ({
   id: f.datatype.uuid(),
   quantity: f.datatype.number({ max: 10 }),
-  images: randomImages(),
+  image: randomPicture(),
   isDiscontinued,
   priceCents: f.datatype.number({ max: 20000, precision: 1 }),
   selectableOptions,
