@@ -8,10 +8,12 @@ This interview test simulates an environment that is similar to working at Shop 
 
 The current test is setup with a few basic react components: `Cart`, `CartItem` and `ProductItem`. Feel free to change any of these if you wish! The primary focus of the assignment should be to demonstrate your React, Typescript, Javascript and general coding proficiency!
 
+The folder structure is broken into the frontend folder and server folder, you should do your work in the frontend folder but run the server locally using the **Server** instructions below! Please note that in the frontend, there is temporary data in cart and app just to show you what the components look like, please replace them with the appropriate backend data!
+
 The following should be noted:
 
 1. All the bugs in the assigment are intentional, wink wink, nudge nudge.
-2. Work with the data as if it was real. (Do not manipulate/transform the mockData files)
+2. Work with the data from the backend as if it was real. (Do not manipulate/transform the mockData files)
 3. You can make additional assumptions, please note them if they are critical to understanding the way your features are implemented.
 4. Please document your changes well and make as many atomic commits as you feel are necessary for someone to track your changes.
 
