@@ -17,6 +17,20 @@ The following should be noted:
 3. You can make additional assumptions, please note them if they are critical to understanding the way your features are implemented.
 4. Please document your changes well and make as many atomic commits as you feel are necessary for someone to track your changes.
 
+## How-To: Getting Started
+
+1. Create a new Github repository
+2. Unzip and push the project onto your `main` (or `master`) branch
+3. Create a feature branch
+4. Make all necessary changes to complete this task
+5. Create a pull request towards `main` (or `master`)
+6. Share the link to your pull request with our team so our developers can review your assignment
+7. After you've heard back from us, make sure to remove your repository
+
+> We avoid working with actual pull requests towards our own Github repository, as that would go against anonymity and also allow previous candidates to see each others assignments.
+
+## Evaluation Criteria
+
 Of your submission, the following will be evaluated:
 
 - Ability to architect features
