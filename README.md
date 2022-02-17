@@ -26,9 +26,6 @@ Of your submission, the following will be evaluated:
 - Attention to detail
 - Clarity in communicating the feature implemented (Pictures and gifs are highly recommended)
 
-High scorers will be contacted via email within a week of acknowledgement of PR submission.
-Thank you and good luck for everyone who applied and submitted a PR.
-
 ## Features
 
 For this assignment, please implement an _add to cart_ feature from the list of products. We have a simple node server for you to fetch products from. It's up to you to figure out everything required to make it work including frontend data validation and preventing adding to cart for out of stock products. You can find the product data shape [here](https://github.com/ShopBonsai/interview-test-frontend/tree/main/server/types/product.ts).
