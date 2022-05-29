@@ -1,13 +1,10 @@
 import './App.css';
 import React from "react";
-import {RecoilProductList} from "./state/recoil/recoilProductList";
-import {RecoilRoot} from "recoil";
+import {JotaiProductList} from "./state/jotai/jotaiProductList";
 
 const App: React.FC = () =>
-    <RecoilRoot>
-        <React.Suspense fallback={<div>Loading...</div>}>
-            <RecoilProductList/>
-        </React.Suspense>
-    </RecoilRoot>;
+    <React.Suspense fallback={<div>Loading...</div>}>
+        <JotaiProductList/>
+    </React.Suspense>
 
 export default App;

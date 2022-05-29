@@ -1,5 +1,4 @@
 import {atom} from "jotai";
-import {Product} from "../../core-models";
 import {productsQuery} from "../../apiClient";
 // Unlike Zustand and Toolkit, Recoil and Jotai use a fully atomized state strategy, with the intention of
 // fully replacing local state and global state.
@@ -22,7 +21,6 @@ import {productsQuery} from "../../apiClient";
 export const queryAtom = atom<string>('');
 export const pageAtom = atom<number>(1);
 export const pageSizeAtom = atom<number>(3);
-export const productsAtom = atom<Product[]>([]);
 
 // This is a derived atom that gets the information
 // of our 3 previous atoms and puts it in one place
@@ -35,11 +33,13 @@ export const productsQueryAtom = atom((get) => ({
         page: get(pageAtom),
         pageSize: get(pageSizeAtom),
     }),
-    // This is where we can subscribe to the state changes, by
-    // creating a special setter that will update all atoms we
-    // need, as we overwrite the default set for method for this atom.
-    (get, set) => {
-        const {query, page, pageSize} = get(productsQueryAtom);
-        productsQuery({query, page, pageSize}).then(products => set(productsAtom, products));
-    }
 );
+
+// This is a derived atom that allows us to fetch products asynchronously. Keep in mind
+// that it'll need Suspense so that it can run due to being
+// an async function.
+export const productsAtom = atom(async (get) => {
+    const {query, page, pageSize} = get(productsQueryAtom);
+    const products = await productsQuery({query, page, pageSize});
+    return products;
+});
