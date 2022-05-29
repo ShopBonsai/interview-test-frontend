@@ -24,7 +24,7 @@ const getRelevancyScore = (query: string, product: Product) => {
 
 export const getProducts = (req: Request<ProductsRequest>, res: Response) => {
     const query = req.query.query as string;
-    const filteredProducts = products.filter(product => getRelevancyScore(query, product) > 0.5);
+    const filteredProducts = products.filter(product => getRelevancyScore(query, product) > 0.3);
     const page = req.query.page as unknown as number ?? 1;
     const pageSize = req.query.pageSize as unknown as number ?? 10;
     const parsedProducts = filteredProducts.slice((page - 1) * pageSize, page * pageSize);
