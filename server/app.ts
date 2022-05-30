@@ -14,6 +14,6 @@ app.set('json spaces', 2);
 // API
 app.get('/products', products.getProducts);
 
-app.listen({ port: PORT }, () => {
-  console.log(`server running on port: ${PORT}`);
+app.listen({port: PORT}, () => {
+    console.log(`server running on port: ${PORT}`);
 });
