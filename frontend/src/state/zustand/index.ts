@@ -41,7 +41,7 @@ export const useProducts = create<ProductState>((set, get) => ({
     // I'm declaring this here solely so we can look at how
     // we can access the state from inside the reducer.
     // Later on we'll see an example in Subscribe, and
-    // we'll see how we can access the state outside of react as well.
+    // we'll see how we can access the state outside react as well.
     getProducts: () => get().products,
 }));
 
@@ -52,11 +52,6 @@ export const useProducts = create<ProductState>((set, get) => ({
 // needing to create custom components, providers and hooks.
 useSearch.subscribe(async ({query, page, pageSize}) => {
     // Runs when the search query changes
-    const products = await productsQuery({query, page, pageSize});
     // Fetches product state and sets new products
-    useProducts.getState().setProducts(products);
-});
-
-useProducts.subscribe(({products}) => {
-    // Runs when useProducts state changes
+    useProducts.getState().setProducts(await productsQuery({query, page, pageSize}));
 });

@@ -3,16 +3,16 @@ import {Card, CardContent, debounce, Pagination, Stack, TextField, Typography} f
 import {useProducts, useSearch} from "./index";
 
 export const ZustandProductList = () => {
-    // Create inner state for setting input search bar
-    const [input, setInput] = React.useState('');
-    // Debounce input
-    const debouncedSetInput = debounce(setInput, 500);
+    // The below is necessary so that there's some kind of initial load
+    // once the page is rendered. There's probably a better way,
+    // but I haven't found one yet (inner state maybe?)
+    React.useEffect(() => setQuery(''), []);
     // Connect to Zustand store
     const {setQuery, setPage} = useSearch();
+    // Debounce set query
+    const debouncedSetQuery = debounce(setQuery, 500);
     // Call debounced input on event
-    const onChange = (e: ChangeEvent<HTMLInputElement>) => debouncedSetInput(e.target.value);
-    // Update store on debounced call
-    React.useEffect(() => setQuery(input), [input]);
+    const onChange = (e: ChangeEvent<HTMLInputElement>) => debouncedSetQuery(e.target.value);
     // Finally, fetches updated products to display
     const {products} = useProducts();
 

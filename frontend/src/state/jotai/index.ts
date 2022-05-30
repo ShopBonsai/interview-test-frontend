@@ -40,6 +40,23 @@ export const productsQueryAtom = atom((get) => ({
 // an async function.
 export const productsAtom = atom(async (get) => {
     const {query, page, pageSize} = get(productsQueryAtom);
-    const products = await productsQuery({query, page, pageSize});
-    return products;
+    return await productsQuery({query, page, pageSize});
 });
+
+// // There's another way to fetch queries asynchronously with jotai --
+// // it gives us access to the atomWithQuery method which gives us native access
+// // to the useQuery hook, allowing us to call it directly inside our atom.
+// export const productsAtomWithQuery = atomWithQuery((get) => ({
+//     queryKey: ['products', get(productsQueryAtom)],
+//     queryFn: async (queryKey: ProductsQueryParam[]) => await productsQuery({...queryKey[1]}),
+// }));
+
+// // Yet another way to fetch it with automatic pagination is with
+// // the atomWithInfiniteQuery
+// export const productsAtomWithInfiniteQuery = atomWithInfiniteQuery((get) => ({
+//     queryKey: ['products', get(productsQueryAtom)],
+//     queryFn: async (queryKey: ProductsQueryParam[]) => await productsQuery({...queryKey[1]}),
+//     // Infinite queries have access to everything that react-query's infinite queries have access
+//     // to, so we could use it like this:
+//     getNextPageParam: (lastPage) => lastPage.nextCursor,
+// }));
